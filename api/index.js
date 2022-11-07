@@ -19,7 +19,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    hello: () => "world",
+    hello: () => "hanstock graphql server",
   },
 };
 
