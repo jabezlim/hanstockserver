@@ -3,6 +3,7 @@ import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import http from "http";
 import express from "express";
 import cors from "cors";
+import { typeDefs, resolvers } from "../schema/index.js";
 
 const app = express();
 
@@ -11,17 +12,6 @@ app.use(express.json());
 
 const httpServer = http.createServer(app);
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => "hanstock graphql server",
-  },
-};
 
 const startApolloServer = async(app, httpServer) => {
   const server = new ApolloServer({
